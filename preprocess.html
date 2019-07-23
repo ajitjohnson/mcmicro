@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Image Preprocessing | Image Processing Pipeline</title>
+  <meta name="description" content="2 Image Preprocessing | Image Processing Pipeline" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Image Preprocessing | Image Processing Pipeline" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="labsyspharm/rnmicro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Image Preprocessing | Image Processing Pipeline" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ashlar.html">
+<link rel="next" href="segment.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="extra-styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">LSP Image Processing Pipeline</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Quick Start</a></li>
+<li class="chapter" data-level="" data-path="howto.html"><a href="howto.html"><i class="fa fa-check"></i>How To Contribute</a></li>
+<li class="chapter" data-level="1" data-path="ashlar.html"><a href="ashlar.html"><i class="fa fa-check"></i><b>1</b> Image Stitching and Registration</a></li>
+<li class="chapter" data-level="2" data-path="preprocess.html"><a href="preprocess.html"><i class="fa fa-check"></i><b>2</b> Image Preprocessing</a></li>
+<li class="chapter" data-level="3" data-path="segment.html"><a href="segment.html"><i class="fa fa-check"></i><b>3</b> Image Segmentation</a></li>
+<li class="chapter" data-level="4" data-path="histocat.html"><a href="histocat.html"><i class="fa fa-check"></i><b>4</b> Quantification of segmentation masks using headless HistoCAT</a></li>
+<li class="chapter" data-level="5" data-path="celltype.html"><a href="celltype.html"><i class="fa fa-check"></i><b>5</b> Assignment of cell type/state identity</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Image Processing Pipeline</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="preprocess" class="section level1">
+<h1><span class="header-section-number">2</span> Image Preprocessing</h1>
+<p>Images can be preprocessed by inferring nuclei contours via a pretrained UNet model. The model is trained on 3 classes : background, nuclei contours and nuclei centers. The resulting probability maps can then be loaded into any modular segmentation pipeline that may use (but not limited to) a marker controlled watershed algorithm.</p>
+<p>The only <strong>input</strong> file is:
+an .ome.tif or .tif (preferably flat field corrected, minimal saturated pixels, and in focus. The model is trained on images acquired at 20x with binning 2x2 or a pixel size of 0.65 microns/px. If your settings differ, you can upsample/downsample to some extent.</p>
+<p><strong>How to install:</strong>
+1. Copy the python script, UNet model, and ImageScience toolbox to your computer. Clone from <a href="https://github.com/HMS-IDAC/UNet4Sage.git" class="uri">https://github.com/HMS-IDAC/UNet4Sage.git</a>
+2. Pip install tensorflow (or tensorflow_gpu with CUDA drivers and CuDNN libraries), matplotlib, scikit-image, Pillow, tifffile, Image, scipy</p>
+<p><strong>How to run:</strong><br/>
+3. Open the python script batchUNet2DtCycif.py in an editor.<br/>
+4. Make the following changes to the code to reflect the locations of your data and supporting files:<br/>
+-line 10 update the path to the ImageScience toolbox folder <code>sys.path.insert(0, 'path//to//UNet code//ImageScience')</code><br/>
+-line 509 update the path to the model <br/>
+<code>modelPath = 'modelPath = 'path//to//UNet code//TFModel - 3class 16 kernels 5ks 2 layers'</code><br/>
+-line 515 update the path to the top level experiment folder of the data <br/>
+<code>imagePath = 'path//to//parent//folder//of//data'</code> <br/>
+your files should be stored in a subfolder called <code>registration</code> <br/>
+-line 516 : if you have multiple samples and they have a similar prefix, add the prefix/suffix here: <br/><code>sampleList = glob.glob(imagePath + '//105*')</code><br/>
+-line 520 : if your files have a different extension from <strong>tif</strong>, you can change the extension here:<br/>
+<code>fileList = glob.glob(iSample + '//registration//*.tif')</code><br/></p>
+<p><strong>some helpful tips:</strong><br/>
+5. -line 517 - specify the channel to infer nuclei contours and centers. If you want to run UNet on the 1st channel (sometimes DAPI/Hoechst), put 0.<br/>
+-line 518 - if you acquired your images at a higher magnification (ie. 40x), you may want to downsample your image so that it is more similar to the trained model (ie. 20x binning 2x2, pixel size 0.65 microns).<br/></p>
+<ol start="6" style="list-style-type: decimal">
+<li><p>in your terminal, activate your virtual environment and run this python script:
+<code>python batchUNet2DtCycif.py</code></p></li>
+<li>If using tensorflow-gpu, your GPU card should be found. If not, prepare to hear your CPU fan fly!</li>
+<li><p>The probabilty map for the contours will be saved as a 3D tif file (concatenated with the original channel) and saved in a subfolder called `probmaps. The channel index you specified for inference is saved in the filename.</p></li>
+</ol>
+<p><strong>References:</strong> <br/>
+S Saka, Y Wang, J Kishi, A Zhu, Y Zeng, W Xie, K Kirli, C Yapp, M Cicconet, BJ Beliveau, SW Lapan, S Yin, M Lin, E Boyde, PS Kaeser, G Pihan, GM Church, P Yin, Highly multiplexed in situ protein imaging with signal amplification by Immuno-SABER, Nat Biotechnology (accepted)</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ashlar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="segment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
